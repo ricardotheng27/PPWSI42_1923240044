@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//mengirim data ke view
+Route::get("/hallo", function(){
+    $data = ['nama' => 'Ricardo Theng', 'npm' => '1923240044', 'alamat' => 'Jl Sultan Syahrir'];
+    return view("hallo", $data);
+});
+
+//menerima data/parameter dan menampilkannya di view
+Route::get("/kenalan/{nama}/{npm}", function($nama, $npm){
+    $data = ['nama' => $nama, 'npm' => $npm];
+    return view("hallo", $data);
+});
