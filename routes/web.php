@@ -42,3 +42,6 @@ Route::get('/mahasiswa/insert-elq', [MahasiswaController::class, 'insertElq']);
 Route::get('/mahasiswa/update-elq', [MahasiswaController::class, 'updateElq']);
 Route::get('/mahasiswa/delete-elq', [MahasiswaController::class, 'deleteElq']);
 Route::get('/mahasiswa/select-elq', [MahasiswaController::class, 'selectElq']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
